@@ -102,32 +102,35 @@ def skit_guess_game(player_name, number_correct, number_incorrect):
     print (episode_number)
     print ('***NOTE*** THIS IS PRINTING THE EPISODE NUMBEER FOR TESTING ONLY.  REMOVE THESE LINES IN THE FINAL PROGRAM  ***NOTE***')
     print (' ')
-    player_guess = raw_input('Enter a number between 1-13 or 99 to exit:  ')
-    while len(player_guess) < 1:
-        player_guess = raw_input('You must enter a number between 1-13 or 99 to exit:  ')
-    if int(episode_number) == int(player_guess):
-        print ("CORRECT!  " + episode_name + ' appeared in episode ' + str(episode_number))
-        print (' ')
-        number_correct = number_correct + 1
-        skit_guess_game(player_name, number_correct, number_incorrect)
-    elif int(player_guess) != 99:
-        print ('Wrong, ' + episode_name + ' appeared in episode ' + str(episode_number))
-        print (' ')
-        number_incorrect = number_incorrect + 1
-        skit_guess_game(player_name, number_correct, number_incorrect)
-    elif int(player_guess) == 99:
-        save_scores = open('scores.txt','a')
-        number_correct = player_name + ':  ' + str(number_correct) + ' correct'
-        print (number_correct)
-        number_incorrect = player_name + ':  ' + str(number_incorrect) + ' incorrect'
-        print (number_incorrect)
-        print (' ')
-        date_played = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        save_scores.write(date_played+'\n')
-        save_scores.write(number_correct+'\n')
-        save_scores.write(number_incorrect+'\n')
-        save_scores.close()
-        menu()
+    player_guess = raw_input('Enter an episode number between 1-13 or 14 to exit:  ')
+    while (player guess) < 1:
+    if int(player_guess) in range(1,15):
+	if int(episode_number) == int(player_guess):
+	    print ("CORRECT!  " + episode_name + ' appeared in episode ' + str(episode_number))
+	    print (' ')
+	    number_correct = number_correct + 1
+            skit_guess_game(player_name, number_correct, number_incorrect)
+        elif int(player_guess) != 14:
+            print ('Wrong, ' + episode_name + ' appeared in episode ' + str(episode_number))
+            print (' ')
+            number_incorrect = number_incorrect + 1
+            skit_guess_game(player_name, number_correct, number_incorrect)
+        elif int(player_guess) == 14:
+            save_scores = open('scores.txt','a')
+            number_correct = player_name + ':  ' + str(number_correct) + ' correct'
+            print (number_correct)
+            number_incorrect = player_name + ':  ' + str(number_incorrect) + ' incorrect'
+            print (number_incorrect)
+            print (' ')
+            date_played = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            save_scores.write(date_played+'\n')
+            save_scores.write(number_correct+'\n')
+            save_scores.write(number_incorrect+'\n')
+            save_scores.close()
+            menu()
+	else:
+	    print('Pleae make a valid selection between 1-14')
+	    skit_guess_game(player_name, number_correct, number_incorrect)
 
 
 #  Function to start the adventure RPG
