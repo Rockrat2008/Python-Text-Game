@@ -1,7 +1,7 @@
-#  Tammy "Kit" O'Brien
+#  CREATED BY:  Michael O'Brien
 #  CREATED:  05 April 2018
-#  MODIFIED:  18 April 2018
-#  Program 5
+#  MODIFIED:  23 April 2018
+#  Python text game
 
 
 #  Load the dictionary with the episodes from season 11
@@ -11,10 +11,8 @@ episodes = {"It's Wolfgang Amadeus Mozart":1,"Famous Deaths":1,"Italian Lesson":
 #  Global variablees to be used by the adventure RPG to track success
 book = False
 glasses = False
-# candle = False
 key = False
 matches = False
-# music_box = False
 papers = False
 
 
@@ -99,9 +97,6 @@ def skit_guess_game(player_name, number_correct, number_incorrect):
     print (' ')
     print ('What episode did skit ' + episode_name + ' appear in?')
     print (' ')
-    print (episode_number)
-    print ('***NOTE*** THIS IS PRINTING THE EPISODE NUMBEER FOR TESTING ONLY.  REMOVE THESE LINES IN THE FINAL PROGRAM  ***NOTE***')
-    print (' ')
     player_guess = raw_input('Enter an episode number between 1-13 or 14 to exit:  ')
     while (player guess) < 1:
     if int(player_guess) in range(1,15):
@@ -144,7 +139,7 @@ def rpg():
     print (' ')
     play = raw_input('Enter "P" to play the game or "Q" to return to the game menu:  ')
     while len(play) != 1:
-        play = raw_input('Please enter "P" to paly or "Q" to return to the game menu:  ')
+        play = raw_input('Please enter "P" to play or "Q" to return to the game menu:  ')
     if play.upper() == "Q":
         menu()
     elif play.upper() == "P":
@@ -170,7 +165,7 @@ def enter_building(player_name):
         choice = raw_input(player_name + ' you must decide what to do!  ')
     if choice == '2':
         print(player_name + ' it appears you are not worthy of finding the Holy Grail after all.')
-        menu()
+        rpg()
     elif choice == '1':
         print (' ')
         print ('The door creaks open, scraping the floor from disuse as you enter the building.  In a moment you eyes adjust to the dimly lit room:')
@@ -222,7 +217,7 @@ def room(player_name):
     elif choice == '5':
         chair(player_name,book,glasses,key,matches,papers)
     else:
-        print ('you didn not make a valid selection')
+        print ('you did not not make a valid selection')
         room(player_name)
 
 
@@ -264,7 +259,7 @@ def bookcase(player_name,book,glasses,key,matches,papers):
         print (' ')
         choice = raw_input('What do you do ' + player_name + '?  ')
         while len(choice) != 1:
-            choice = raw_input(player_name + ' you must decice what to do!  ')
+            choice = raw_input(player_name + ' you must decide what to do!  ')
         if choice == '1':
             end_table(player_name,book,glasses,key,matches,papers)
         elif choice == '2':
@@ -308,7 +303,7 @@ def writing_desk(player_name,book,glasses,key,matches,papers):
 	elif choice == '5':
 		chair(player_name,book,glasses,key,matches,papers)
 	else:
-		print ("You didn't make a valid selection")
+		print ("You did not make a valid selection")
 		writing_desk(player_name,book,glasses,key,matches,papers)
 
 
@@ -333,7 +328,7 @@ def dining_table(player_name,book,glasses,key,matches,papers):
 	elif choice == '1':
 		if (glasses):
 			print ('The papers say "Guide to Finding the Holy Grail"')
-			print ('As you read the guide it tells you "Whiile I haven\'t figured out everything yet in my search I have determined that I need to light a candle to reveal a hidden door.  I\'m not sure how all of this ties together bue apparantly there is also a music box, a key, and a book called "The song of the Grail" that will also aid in my quest.')
+			print ('As you read the guide it tells you "While I haven\'t figured out everything yet in my search I have determined that I need to light a candle to reveal a hidden door.  I\'m not sure how all of this ties together bue apparantly there is also a music box, a key, and a book called "The song of the Grail" that will also aid in my quest.')
 			papers = True
 			dining_table(player_name,book,glasses,key,matches,papers)
 		else:
@@ -367,7 +362,7 @@ def dining_table(player_name,book,glasses,key,matches,papers):
 	elif choice == '6':
 		chair(player_name,book,glasses,key,matches,papers)
 	else:
-		print ('you didn not make a valid selection')
+		print ('you did not not make a valid selection')
 		dining_table(player_name,book,glasses,key,matches,papers)
 
 
@@ -422,7 +417,7 @@ def end_table(player_name,book,glasses,key,matches,papers):
 			choice = raw_input(player_name + ' you must decide what to do!  ')
 		if choice == '6':
 			print (player_name + ' it appears you are not worthy of finding the Holy Grail after all.')
-			menu()
+			rpg()
 		elif choice == '1':
 			print(' ')
 			print ('As you set the music box on top of the book you hear something like it starts to try playing, but something is stopping		it')
@@ -461,7 +456,7 @@ def end_table(player_name,book,glasses,key,matches,papers):
 			chair(player_name,book,glasses,key,matches,papers)
 	else:
 		print(' ')
-		print('As you look at the end table you see a music box.  AS you look closer you see what appears to be the outline of a book around it in the dust.  You wonder if there is a book somewhere that was moved for some reason.')
+		print('As you look at the end table you see a music box.  As you look closer you see what appears to be the outline of a book around it in the dust.  You wonder if there is a book somewhere that was moved for some reason.')
 		print ('1 - Go to the dining table')
 		print ('2 - Go to the writing desk')
 		print ('3 - Go to the bookcase')
@@ -500,7 +495,7 @@ def secret_room(player_name):
         choice = raw_input(player_name + ' you must decide what to do!  ')
     if choice == '3':
         print(player_name + ' it appears you are not worthy of finding the Holy Grail after all.')
-        menu()
+        rpg()
     elif choice == '1':
         print('You pick up King Arthur\'s sword and feel magic course through your veins urging you onward.  Come back tomorrow to continue your quest brave adventurer.')
         menu()
